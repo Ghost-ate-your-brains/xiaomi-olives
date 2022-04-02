@@ -28,6 +28,6 @@ jobs:
           ./build/system-image-from-ota.sh ota/ubuntu_command out
           ./splash/generate.sh out
       - name: Uploading Artifacts
-        uses: actions/upload-artifact@v3.0.0
+        uses: actions/upload-artifact
         with:
           path: out/
