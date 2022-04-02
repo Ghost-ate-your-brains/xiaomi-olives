@@ -5,13 +5,16 @@ on:
     branches: [ halium-10.0 ]
   pull_request:
     branches: [ halium-10.0 ]
-  workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    
 
     steps:
+      -
+        name: Checkout 
+        uses: actions/checkout@v2
       - name: Building...
         run: |
           apt update
