@@ -21,13 +21,4 @@ jobs:
           apt install android-tools-mkbootimg bc build-essential ca-certificates cpio curl git kmod libssl-dev libtinfo5 python2 sudo unzip wget xz-utils -y --no-install-recommends
           ln -sf python2.7 /usr/bin/python
           ./build.sh
-      - name: Making Flashable
-        uses: |
-          apt update
-          apt install -y imagemagick img2simg jq sudo wget xz-utils
-          DEVICE="$(source deviceinfo && echo $deviceinfo_codename)"
-          ./build/fetch-and-prepare-latest-ota.sh "16.04/arm64/android9/devel" "$DEVICE" ota
-          mkdir -p out
-          ./build/system-image-from-ota.sh ota/ubuntu_command out
-          ./splash/generate.sh out
 
