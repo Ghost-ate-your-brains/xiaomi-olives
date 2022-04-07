@@ -26,7 +26,7 @@ jobs:
           ./build/prepare-fake-ota.sh out/device_olives.tar.xz ota
           ./build/system-image-from-ota.sh ota/ubuntu_command out
      - name: Uploading...
-       - uses: actions/upload-artifact@v3
-          with:
-             name: my-artifact
-             path: path/to/artifact/
+       uses: actions/upload-artifact@v3
+         with:
+           name: my-artifact
+           path: path/to/artifact/
