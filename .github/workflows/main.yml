@@ -22,5 +22,11 @@ jobs:
           sudo apt update
           sudo apt install android-tools-mkbootimg bc build-essential ca-certificates cpio curl git kmod libssl-dev libtinfo5 python2 sudo unzip wget xz-utils -y --no-install-recommends
           sudo ln -sf python2.7 /usr/bin/python
-          ./build.sh
-
+          ./build.sh -b bd
+          ./build/prepare-fake-ota.sh out/device_olives.tar.xz ota
+          ./build/system-image-from-ota.sh ota/ubuntu_command out
+     - name: Uploading...
+       - uses: actions/upload-artifact@v3
+          with:
+             name: my-artifact
+             path: path/to/artifact/
